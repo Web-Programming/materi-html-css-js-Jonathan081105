@@ -18,3 +18,22 @@ const products = [
     { id: 9, nama: "Kursi Makan Velvet", harga: 950000, diskon: 0, kategori: "Dapur", stok: 10, gambar: "https://picsum.photos/id/192/400/400&quot;" },
     { id: 10, nama: "Karpet Bulu Mewah", harga: 1200000, diskon: 1500000, kategori: "Ruang Tamu", stok: 6, gambar: "https://picsum.photos/id/201/400/400&quot; "},
 ];
+function renderProducts() {
+    const container = document-getElementById("product-container");
+    container.innerHTML = "";
+    products.forEach(product => {
+        let badgeHTML="";
+        let priceHTMML="";
+        if(product.diskon > 0){
+            badgeHTML = `<span class="badge bg-danger">diskon</span>`;
+            priceHTMML = `<span class="text-muted text-decoration-line-through small">Rp. ${product.diskon.toLocaleString()}</span><br><span class="text-danger fw-bold"> Rp. ${product.harga.toLocaleString()}</span>`;
+        }else{
+            priceHTMML = `<span class="text-dark fw-bold">Rp. ${product.harga.toLocaleString()}</span>`;
+        }
+        if(product.stok === 0){
+            buttonHTML = `<button class="btn btn-buy p -2" onclick="alert('Ditambahkan ke keranjang!:$${product.nama}')"Beli sekarang</button>`
+        }else{
+                buttonHTML = `<button class="btn btn-secondary p-2 w-100 " disabled>Stok habis</button>`
+
+        }
+    })}
