@@ -37,3 +37,5 @@ function renderProducts() {
 
         }
     })}
+    function renderProducts(){
+        products.forEach {product
